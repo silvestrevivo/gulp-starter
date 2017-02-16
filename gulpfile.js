@@ -14,6 +14,8 @@
 //$ sudo npm install --save-dev gulp-concat
 //for watch any npm is installed
 //$ npm install browser-sync gulp --save-dev
+//$ npm install --save-dev gulp-autoprefixer
+//$ npm install gulp-sourcemaps
 //5. Create gulpfile.js in the root directory with this content below:
 
 
@@ -25,7 +27,9 @@ const gulp          = require('gulp'),
       plumber       = require('gulp-plumber'),
       minifyCSS     = require('gulp-minify-css'),
       uglify        = require('gulp-uglify'),
-      concat        = require('gulp-concat'),
+      concat        = require('gulp-concat')
+      sourcemaps    = require('gulp-sourcemaps'),
+      autoprefixer  = require('gulp-autoprefixer'),
       browserSync   = require('browser-sync');
 
 const dest_js = 'dist/js',
@@ -41,6 +45,12 @@ gulp.task('sass', function(){
   gulp.src(src_sass)
     .pipe(plumber())
     .pipe(sass())
+    .pipe(sourcemaps.init())
+    .pipe(autoprefixer({
+        browsers: ['last 2 version', 'safari 5', 'ie 6', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']
+      }))
+    .pipe(concat('style.css'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dest_css))
     .pipe(minifyCSS({keepBreaks: true}))
     .pipe(gulp.dest(dest_css))
@@ -69,6 +79,7 @@ gulp.task('watch', function(){
     });
   gulp.watch(src_sass, ['sass']);
   gulp.watch(src_js, ['JavaScript']);
+  gulp.watch('*.html').on('change', browserSync.reload)
 });
 
 
@@ -80,4 +91,4 @@ gulp.task('default', ['watch']);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-//6. Run in the terminal $ gulp => automatic reload for SASS and JS files
+//6. Run in the terminal $ gulp => automatic reload for HTML, SASS and JS files
