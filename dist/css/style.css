@@ -1,5 +1,5 @@
 h1,h2,h3,h4,h5,h6{line-height:1.1}
-body,html{height:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:subpixel-antialiased;-webkit-font-smoothing-font-family:'Ubuntu',sans-serif}
+body,html{height:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:subpixel-antialiased;webkit-tap-highlight-color:orange}
 body{background-color:#5c818b;padding:10% 2%;position:relative}
 ul{padding:0;font-size:0}
 i{vertical-align:middle}
@@ -13,6 +13,10 @@ a,a:active,a:focus,a:hover,a:link,a:visited{outline:0;text-decoration:none}
 }
 @media (min-width:1200px){.col-lg-15{width:20%;float:left}
 }
+::-moz-selection{text-shadow:none;background:orange}
+::selection{text-shadow:none;background:orange}
+img::selection{background:0 0}
+img::-moz-selection{background:0 0}
 .blue{background-color:#005C89}
 .lblue{background-color:#6EBDEA}
 .green{background-color:#4FAF47}
