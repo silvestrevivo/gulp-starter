@@ -1,12 +1,16 @@
 # gulp-starter
 
-Project starter template in Gulp to sync up HTML, SASS, JavaScript and Bootstrap 3. Demo in https://silvestrevivo.github.io/gulp-starter/
+Project starter template in Gulp to sync up HTML, SASS, JavaScript and Bootstrap 3. To see a demo: https://silvestrevivo.github.io/gulp-starter/
 
 ### gulp scheme
+
+---
 
 ![Alt text](https://silvestrevivo.github.io/gulp-starter/dist/img/gulpschema.png "gulp scheme")
 
 ### instructions
+
+---
 
 1. Ensure you have gulp installed as global
 
@@ -21,6 +25,8 @@ Project starter template in Gulp to sync up HTML, SASS, JavaScript and Bootstrap
    * $ gulp => automatic reload for HTML, SASS and JS files
 
 #### dependencies
+
+---
 
 * $ npm install --save-dev gulp-sass
 
@@ -37,4 +43,3 @@ Project starter template in Gulp to sync up HTML, SASS, JavaScript and Bootstrap
 * $ npm install --save-dev gulp-autoprefixer
 
 * $ npm install gulp-sourcemaps
-
